@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Martínez — Systems Administrator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- Noise overlay -->
+<div class="noise"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="logo-bracket">[</span>AM<span class="logo-bracket">]</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about" data-text="Sobre mí">Sobre mí</a></li>
+      <li><a href="#experience" data-text="Experiencia">Experiencia</a></li>
+      <li><a href="#projects" data-text="Proyectos">Proyectos</a></li>
+      <li><a href="#contact" data-text="Contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span>Disponible</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+
+  <div class="hero-bg">
+    <div class="hero-img-wrap">
+      <img src="photo.png" alt="Alex Martínez" class="hero-img">
+    </div>
+    <div class="hero-grid-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">Systems Administrator</span>
+      <span class="eyebrow-year">EST. 2024</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="title-line" data-index="0">Alex</span>
+      <span class="title-line italic" data-index="1">Martínez</span>
+    </h1>
+
+    <div class="hero-sub">
+      <p>Infraestructura · Virtualización · Active Directory · Soporte IT</p>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        <span>Ver proyectos</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#contact" class="btn-ghost">Contactar</a>
+    </div>
+  </div>
+
+  <div class="hero-side">
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-target="2">0</span>
+        <span class="stat-label">Años exp.</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="99">0</span>
+        <span class="stat-label">% Uptime</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section about-section">
+
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-label">Sobre mí</span>
+  </div>
+
+  <div class="about-layout">
+
+    <div class="about-text">
+      <h2 class="section-title">Construyo infraestructuras que <em>no fallan.</em></h2>
+
+      <div class="about-body">
+        <p>
+          Técnico de soporte IT especializado en administración de sistemas Windows,
+          virtualización y mantenimiento de infraestructura empresarial.
+        </p>
+        <p>
+          Experiencia con Windows Server, Active Directory, Hyper-V, Proxmox,
+          DNS, DHCP y resolución de incidencias críticas.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-item"><span class="skill-icon"><i class="fas fa-server"></i></span>Windows Server</div>
+        <div class="skill-item"><span class="skill-icon"><i class="fas fa-users-cog"></i></span>Active Directory</div>
+        <div class="skill-item"><span class="skill-icon"><i class="fas fa-cube"></i></span>Hyper-V / Proxmox</div>
+        <div class="skill-item"><span class="skill-icon"><i class="fas fa-network-wired"></i></span>DNS / DHCP</div>
+        <div class="skill-item"><span class="skill-icon"><i class="fab fa-docker"></i></span>Docker</div>
+        <div class="skill-item"><span class="skill-icon"><i class="fab fa-linux"></i></span>Linux</div>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="t-dot red"></div>
+          <div class="t-dot yellow"></div>
+          <div class="t-dot green"></div>
+          <span class="t-title">alex@sysadmin ~ </span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">whoami</span></div>
+          <div class="t-output">alex.martinez — sysadmin</div>
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">uptime</span></div>
+          <div class="t-output">2 years, 0 incidents</div>
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">cat skills.txt</span></div>
+          <div class="t-output">Windows Server, AD, Proxmox</div>
+          <div class="t-output">Docker, DNS, Hyper-V, Linux</div>
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">echo $STATUS</span></div>
+          <div class="t-output t-green">AVAILABLE FOR HIRE</div>
+          <div class="t-line t-cursor-line"><span class="t-prompt">$</span> <span class="t-blink">_</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section experience-section">
+
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-label">Experiencia</span>
+  </div>
+
+  <h2 class="section-title">Trayectoria</h2>
+
+  <div class="timeline-wrap">
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <span class="tl-date">2026 — Hoy</span>
+        <div class="tl-badge current">Actual</div>
+      </div>
+      <div class="tl-connector">
+        <div class="tl-dot pulse"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <h3>Administrador de Sistemas</h3>
+          <h4>Plikum S.L.</h4>
+          <p>Administración de servidores Windows, Active Directory,
+          virtualización y soporte a usuarios.</p>
+          <div class="tl-tags">
+            <span>Windows Server</span>
+            <span>Active Directory</span>
+            <span>Virtualización</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <span class="tl-date">2026</span>
+      </div>
+      <div class="tl-connector">
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <h3>Soporte IT</h3>
+          <h4>Plikum S.L.</h4>
+          <p>Resolución de incidencias, configuración de equipos y
+          mantenimiento de infraestructura.</p>
+          <div class="tl-tags">
+            <span>Helpdesk</span>
+            <span>Networking</span>
+            <span>Hardware</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section projects-section">
+
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-label">Proyectos</span>
+  </div>
+
+  <h2 class="section-title">Trabajo destacado</h2>
+
+  <div class="projects-list">
+
+    <div class="proj-item reveal" data-num="01">
+      <div class="proj-meta">
+        <span class="proj-num">01</span>
+        <div class="proj-tags-inline">
+          <span>Proxmox</span>
+          <span>Docker</span>
+          <span>AD</span>
+        </div>
+      </div>
+      <div class="proj-content">
+        <h3>Infraestructura doméstica virtualizada</h3>
+        <p>Homelab basado en Proxmox con Active Directory, DNS, Docker y monitorización. Entorno completo para formación y pruebas de producción.</p>
+      </div>
+      <div class="proj-arrow">
+        <i class="fas fa-arrow-up-right"></i>
+      </div>
+    </div>
+
+    <div class="proj-item reveal" data-num="02">
+      <div class="proj-meta">
+        <span class="proj-num">02</span>
+        <div class="proj-tags-inline">
+          <span>Grafana</span>
+          <span>Linux</span>
+          <span>Docker</span>
+        </div>
+      </div>
+      <div class="proj-content">
+        <h3>Plataforma de monitorización</h3>
+        <p>Supervisión de servicios y sistemas mediante dashboards y alertas configuradas con Grafana sobre infraestructura Linux.</p>
+      </div>
+      <div class="proj-arrow">
+        <i class="fas fa-arrow-up-right"></i>
+      </div>
+    </div>
+
+    <div class="proj-item reveal" data-num="03">
+      <div class="proj-meta">
+        <span class="proj-num">03</span>
+        <div class="proj-tags-inline">
+          <span>Windows Server</span>
+          <span>GPO</span>
+        </div>
+      </div>
+      <div class="proj-content">
+        <h3>Despliegue de Active Directory</h3>
+        <p>Implementación de entorno corporativo con políticas de grupo, gestión de usuarios, OUs y seguridad centralizada.</p>
+      </div>
+      <div class="proj-arrow">
+        <i class="fas fa-arrow-up-right"></i>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+
+  <div class="contact-inner">
+
+    <div class="contact-text">
+      <span class="section-num">04</span>
+      <h2 class="contact-title">¿Hablamos?</h2>
+      <p>Disponible para nuevas oportunidades y proyectos de infraestructura.</p>
+    </div>
+
+    <div class="contact-links">
+      <a href="#" class="contact-link">
+        <span class="cl-icon"><i class="fab fa-linkedin"></i></span>
+        <span class="cl-label">LinkedIn</span>
+        <i class="fas fa-arrow-right cl-arrow"></i>
+      </a>
+      <a href="#" class="contact-link">
+        <span class="cl-icon"><i class="fab fa-github"></i></span>
+        <span class="cl-label">GitHub</span>
+        <i class="fas fa-arrow-right cl-arrow"></i>
+      </a>
+      <a href="#" class="contact-link">
+        <span class="cl-icon"><i class="fas fa-envelope"></i></span>
+        <span class="cl-label">Email</span>
+        <i class="fas fa-arrow-right cl-arrow"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-bar">
+    <span>© 2026 Alex Martínez</span>
+    <span>Tarragona, España</span>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
