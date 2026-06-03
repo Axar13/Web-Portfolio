@@ -65,24 +65,32 @@ function animateCounter(el, target, suffix = '', decimals = 0) {
   requestAnimationFrame(update);
 }
 
+function runCounters() {
+  const statNums = document.querySelectorAll('.stat-num');
+  statNums.forEach(el => {
+    const raw = el.dataset.target;
+    const target = parseFloat(raw);
+    const isDecimal = raw.includes('.');
+    const decimals = isDecimal ? raw.split('.')[1].length : 0;
+    animateCounter(el, target, isDecimal ? '%' : '+', decimals);
+  });
+}
+
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const statNums = document.querySelectorAll('.stat-num');
-      statNums.forEach(el => {
-        const raw = el.dataset.target;
-        const target = parseFloat(raw);
-        const isDecimal = raw.includes('.');
-        const decimals = isDecimal ? raw.split('.')[1].length : 0;
-        animateCounter(el, target, isDecimal ? '%' : '+', decimals);
-      });
+      runCounters();
       statsObserver.disconnect();
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0 });
 
 const heroStats = document.querySelector('.hero-stats');
-if (heroStats) statsObserver.observe(heroStats);
+if (heroStats) {
+  statsObserver.observe(heroStats);
+} else {
+  runCounters();
+}
 
 /* =====================
    SCROLL REVEAL
