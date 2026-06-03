@@ -69,7 +69,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       const statNums = document.querySelectorAll('.stat-num');
       statNums.forEach(el => {
         const target = parseInt(el.dataset.target);
-        const isPercent = target === 99;
+        const isPercent = target === 99.99;
         animateCounter(el, target, isPercent ? '%' : '+');
       });
       statsObserver.disconnect();
