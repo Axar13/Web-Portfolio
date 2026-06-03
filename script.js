@@ -49,14 +49,16 @@ window.addEventListener('scroll', () => {
 /* =====================
    STATS COUNTER
    ===================== */
-function animateCounter(el, target, suffix = '') {
+function animateCounter(el, target, suffix = '', decimals = 0) {
   const duration = 1800;
   const start = performance.now();
   const update = (now) => {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(eased * target);
+    const current = decimals > 0
+      ? (eased * target).toFixed(decimals)
+      : Math.round(eased * target);
     el.textContent = current + suffix;
     if (progress < 1) requestAnimationFrame(update);
   };
@@ -68,9 +70,11 @@ const statsObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const statNums = document.querySelectorAll('.stat-num');
       statNums.forEach(el => {
-        const target = parseInt(el.dataset.target);
-        const isPercent = target === 99.99;
-        animateCounter(el, target, isPercent ? '%' : '+');
+        const raw = el.dataset.target;
+        const target = parseFloat(raw);
+        const isDecimal = raw.includes('.');
+        const decimals = isDecimal ? raw.split('.')[1].length : 0;
+        animateCounter(el, target, isDecimal ? '%' : '+', decimals);
       });
       statsObserver.disconnect();
     }
