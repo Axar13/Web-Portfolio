@@ -69,7 +69,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       const statNums = document.querySelectorAll('.stat-num');
       statNums.forEach(el => {
         const target = parseInt(el.dataset.target);
-        const isPercent = target === 99.99;
+        const isPercent = target === 99;
         animateCounter(el, target, isPercent ? '%' : '+');
       });
       statsObserver.disconnect();
@@ -161,11 +161,32 @@ document.querySelectorAll('.proj-item').forEach(item => {
 });
 
 /* =====================
-   PARALLAX HERO (subtle)
+   PARALLAX HERO (subtle, desktop only)
    ===================== */
 const heroImg = document.querySelector('.hero-img');
 window.addEventListener('scroll', () => {
   if (!heroImg) return;
+  if (window.innerWidth < 768) return;
   const y = window.scrollY;
   heroImg.style.transform = `scale(1.05) translateY(${y * 0.2}px)`;
 }, { passive: true });
+
+/* =====================
+   HAMBURGER MENU
+   ===================== */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
